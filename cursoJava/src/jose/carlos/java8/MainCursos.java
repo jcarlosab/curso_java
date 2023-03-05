@@ -35,6 +35,6 @@ public class MainCursos {
 		// Mostrar la duración de los cursos con menos de 500 alumnos
 	}
 	
-	
+	//test
 
 }
