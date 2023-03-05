@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.*;
+import jose.carlos.java8.Curso;
 
 public class MainCursos {
 	
@@ -21,20 +22,34 @@ public class MainCursos {
 
 		// Obtener la cantidad de cursos con duración mayor a 5 horas
 		System.out.println(listaCursos.stream().filter(c -> c.getDuracion()>5).count());
+		
 		// Obtener la cantidad de cursos con duración menor a 2 horas
 		System.out.println(listaCursos.stream().filter(c -> c.getDuracion()<2).count());
+		
 		// Listar el título de aquellos cursos con más de 50 videos
 		listaCursos.stream().filter(c -> (c.getVideos()>50)).forEach(e -> System.out.println(e.getTitulo()));
 		//listaCursos.stream().filter(c -> (c.getVideos()>50)).map(c -> c.getTitulo()).forEach(null);
+		
 		// Mostrar el titulo de los 3 cursos con mayor duración
 		listaCursos.stream().limit(3).forEachOrdered(c -> System.out.println(c.getTitulo()));
+		
 		// Mostrar la duración total de los cursos
+		System.out.println("Duración total de los cursos " + listaCursos.stream().map(c -> c.getDuracion()).mapToDouble(i -> i.doubleValue()).sum());
+		
 		// Obtener el curso con mayor duración
+		//listaCursos.stream().max();
+		
 		// Crear una lista de string con los titulos de todos los cursos
+		
+		
 		// Mostrar todos aquellos cursos cuya duración supere el promedio de duración en horas del conjunto
+		System.out.println("Mostrar todos aquellos cursos cuya duración supere el promedio de duración en horas del conjunto ");
+		double average = listaCursos.stream().mapToDouble(Curso::getDuracion).average().orElse(0.0);
+		listaCursos.stream().filter(curso -> curso.getDuracion() > average).collect(Collectors.toList())
+				.forEach(System.out::println);
+		
 		// Mostrar la duración de los cursos con menos de 500 alumnos
+		listaCursos.stream().filter(c -> (c.getAlumnos()<500)).forEach(e -> System.out.println(e.getDuracion()));
 	}
 	
-	//test
-
 }
