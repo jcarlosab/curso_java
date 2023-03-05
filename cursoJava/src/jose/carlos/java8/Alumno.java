@@ -3,12 +3,21 @@ package jose.carlos.java8;
 import java.util.Arrays;
 
 public class Alumno {
-	
-	//BEAN, DTO, POJO, MODELO
+
+	//BEAN, POJO, MODELO, DTO
+	//nombre, edad, notas, notamedia
 	private String nombre;
+	public Alumno(String nombre, int nota_media) {
+		super();
+		this.nombre = nombre;
+		this.nota_media = nota_media;
+	}
+
+
 	private int edad;
 	private int[] notas;
 	private int nota_media;
+	
 	
 	public String getNombre() {
 		return nombre;
@@ -35,7 +44,6 @@ public class Alumno {
 		this.nota_media = nota_media;
 	}
 	
-	// Metodos sobrecargados
 	public Alumno(String nombre, int edad, int[] notas, int nota_media) {
 		super();
 		this.nombre = nombre;
@@ -51,12 +59,12 @@ public class Alumno {
 		this.nota_media = nota_media;
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "Alumno [nombre=" + nombre + ", edad=" + edad + ", notas=" + Arrays.toString(notas) + ", nota_media="
-				+ nota_media + "]";
+		return "Alumno [nombre=" + nombre + " nota_media= "+ nota_media + "]";
 	}
 	
 	
-
+	
 }
