@@ -43,15 +43,15 @@ public class MainCursos {
 		List<String> listaTitulos = new ArrayList<>();
 		listaCursos.stream().forEach(l -> listaTitulos.add(l.getTitulo()));
 		System.out.println("6 " + listaTitulos);
+		System.out.println("Lista de cursos: " + listaCursos.stream().map(Curso::getTitulo).toList());
 		
 		// Mostrar todos aquellos cursos cuya duración supere el promedio de duración en horas del conjunto
 		System.out.println("7 ");
-		double average = listaCursos.stream().mapToDouble(Curso::getDuracion).average().orElse(0.0);
-		listaCursos.stream().filter(curso -> curso.getDuracion() > average).collect(Collectors.toList())
-				.forEach(System.out::println);
+		System.out.println("Cursos cuya duración supere el promedio: " +listaCursos.stream().filter(curso -> curso.getDuracion() > listaCursos.stream().mapToDouble(Curso::getDuracion).average().getAsDouble()).map(Curso::getTitulo).toList());
 		
 		// Mostrar la duración de los cursos con menos de 500 alumnos
 		listaCursos.stream().filter(c -> (c.getAlumnos()<500)).forEach(e -> System.out.println("8 " + e.getDuracion()));
+		System.out.println("Duracion de los cursos con menos de 500 alumnos: " +listaCursos.stream().filter(curso -> curso.getAlumnos() < 500).map(Curso::getDuracion).toList());
 	}
 	
 }
