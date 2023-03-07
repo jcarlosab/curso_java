@@ -24,3 +24,30 @@ Streams:
     - No se puede reutilizar un stream cerrado
     
 Collectors: Permite transformar un stream en una colección
+
+
+TextBlocks:
+
+##package jose.carlos.java16
+Records(registros): Son como una clase bean, pero con restricciones
+    - Se crean por defecto:
+        - Los atributos son finales (el propio registro también)
+        - No puede hacer set por ser final los atributos
+        - Metodos de acceso solo los get
+        - Metodo toString
+        - Metodo equals
+        - Metodo hashCode
+        - Constructor "largo"  con todos los atributos como parámetros
+        - Los métodos dados, los puedo sobreescibir
+    - No heredan ni pueden heredar
+    - Puedo add nuevos métodos (siempre que no modifiquen el estado)
+
+##package jose.carlos.java17
+Sealed class: Mecanismo para limitar la herencia de clases e interfazces
+    - Las subclases autorizadas están acotadas explícitamente 
+    - Las clases que entran en esta relación deben estar en el mismo paquete o en el mismo módulo (si estamos usando un proyecto modular)
+    - Cuando una subclase hyereda de una sellada, tiene que indicarlos con extends. 
+	- Además, debe usar uno de los siguientes adjetivos/palabras reservadas
+		- sealed -> algunas subclases podrán heredar
+		- non-sealed -> todas las subclases podrán heredar
+		- final -> ninguna classe puede heredar
