@@ -30,13 +30,13 @@ public class TryConRecursosMejorado {
 		}
 		
 		//Try con recursos JAVA 9
-		BufferedReader bfr9 = new BufferedReader(new FileReader("./README.md"));
+		/*BufferedReader bfr9 = new BufferedReader(new FileReader("./README.md"));
 		try (bfr9) {
 			String linea = bf.readLine();
 			System.out.println(linea);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 
